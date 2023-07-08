@@ -23,9 +23,26 @@
   border-radius: 5px;
 }
 
-.input-container button {
-  padding: 10px;
+.todo-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
 
-  margin: 10px;
+.todo-item input {
+  margin-right: 10px;
+}
+
+.todo-item span {
+  flex: 1;
+}
+
+.delete-btn {
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #f44366;
+  color: #fff;
+  border: none;
   border-radius: 5px;
+  cursor: pointer;
 }
