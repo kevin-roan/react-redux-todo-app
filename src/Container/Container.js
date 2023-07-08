@@ -8,8 +8,8 @@ export default function Container() {
         <h1 className="title">Task List</h1>
         <div className="input-container">
           <input type="text" />
+          <button>Add</button>
         </div>
-        <button>Finish</button>
       </div>
     </div>
   );
