@@ -3,14 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 export const todoSlice = createSlice({
   name: "todo",
   initialState: {
-    value: ["ludan"],
+    value: [],
   },
   reducers: {
     addtodo: (state, action) => {
       state.value = [...state.value, action.payload];
     },
-    deltodo: (state) => {
-      state.value += 1;
+    deltodo: (state, action) => {
+      state.value = state.value.filter(
+        (name, index) => index !== action.payload,
+      );
     },
   },
 });

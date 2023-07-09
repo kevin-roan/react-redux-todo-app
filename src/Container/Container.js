@@ -11,8 +11,11 @@ export default function Container() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(input.value);
     dispatch(addtodo(input.value));
+    input.value = "";
+  };
+  const handleDelete = (index) => {
+    dispatch(deltodo(index));
   };
 
   return (
@@ -24,10 +27,15 @@ export default function Container() {
             <input type="text" ref={(node) => (input = node)} />
           </form>
         </div>
-        <div className="todo-item">
-          <span>{todos[1]}</span>
-          <button className="delete-btn">Delete</button>
-        </div>
+        {todos.map((todo, index) => (
+          <div key={index} className="todo-item">
+            <input type="checkbox" />
+            <span>{todo}</span>
+            <button className="delete-btn" onClick={() => handleDelete(index)}>
+              Delete
+            </button>
+          </div>
+        ))}{" "}
       </div>
     </div>
   );
