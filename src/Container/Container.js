@@ -7,9 +7,12 @@ export default function Container() {
   const todos = useSelector((state) => state.todo.value);
   const dispatch = useDispatch();
 
+  let input;
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event.target.value);
+    console.log(input.value);
+    dispatch(addtodo(input.value));
   };
 
   return (
@@ -18,11 +21,11 @@ export default function Container() {
         <h1 className="title">Task List</h1>
         <div className="input-container">
           <form onSubmit={handleSubmit}>
-            <input type="text" onChange={(e) => console.log(e.target.value)} />
+            <input type="text" ref={(node) => (input = node)} />
           </form>
         </div>
         <div className="todo-item">
-          <span>todo</span>
+          <span>{todos[1]}</span>
           <button className="delete-btn">Delete</button>
         </div>
       </div>
